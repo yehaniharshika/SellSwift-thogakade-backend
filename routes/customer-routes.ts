@@ -16,10 +16,10 @@ router.post("/add", async(req, res) => {
     }
 })
 
-router.delete("/delete/:email", async (req, res) => {
-    const email: string  = req.params.email;
+router.delete("/delete/:id", async (req, res) => {
+    const id: string  = req.params.id;
     try{
-        const deletedCustomer = await CustomerDelete(email);
+        const deletedCustomer = await CustomerDelete(id);
         res.json(deletedCustomer);
     }catch(err){
         console.log("error deleting customer", err);
