@@ -1,6 +1,6 @@
 import express from "express";
 
-import {OrderCreate, OrderDelete} from "../database/order-data-store";
+import {getAllOrders, OrderCreate, OrderDelete} from "../database/order-data-store";
 
 const router = express.Router();
 
@@ -26,6 +26,15 @@ router.delete("/delete/:orderId", async(req,res) =>{
         res.json(deletedOrder);
     }catch (err){
         console.log("Error deleting order ",err);
+    }
+})
+
+router.get("/view",async(req,res) => {
+    try {
+        const allOrders = await getAllOrders();
+        res.json(allOrders);
+    }catch (err){
+        console.log("Error getting all orders",err);
     }
 })
 
