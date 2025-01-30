@@ -13,7 +13,7 @@ export async function ItemAdd(i: Item){
                 price: i.price,
             }
         })
-        console.log('Item Addes: ',newItem);
+        console.log('Item Added: ',newItem);
         return newItem;
     }catch (err){
         console.log("Error adding Item ",err);
