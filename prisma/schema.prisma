@@ -14,16 +14,36 @@ datasource db {
 }
 
 model Customer {
-  id    Int    @id @default(autoincrement())
-  name  String
-  nic   String
-  email String @unique
-  phone String
+  id     Int     @id @default(autoincrement())
+  name   String
+  nic    String
+  email  String  @unique
+  phone  String
+  orders Order[]
 }
 
 model Item {
-  code     Int    @id @default(autoincrement())
-  itemName String
-  quantity Int
-  price    String
+  code         Int            @id @default(autoincrement())
+  itemName     String
+  quantity     Int
+  price        String
+  OrderDetails OrderDetails[]
+}
+
+model Order {
+  orderId      Int            @id @default(autoincrement())
+  Customer     Customer       @relation(fields: [id], references: [id], onDelete: Cascade)
+  id           Int
+  OrderDate    DateTime       @default(now())
+  OrderDetails OrderDetails[]
+}
+
+model OrderDetails {
+  OrderDetailsID Int    @id @default(autoincrement())
+  Order          Order  @relation(fields: [orderId], references: [orderId], onDelete: Cascade)
+  orderId        Int
+  Item           Item   @relation(fields: [code], references: [code], onDelete: Cascade)
+  code           Int
+  getQty         Int
+  Price          String
 }
