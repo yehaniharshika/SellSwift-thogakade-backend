@@ -17,7 +17,7 @@ router.post("/add", async(req, res) => {
 })
 
 router.delete("/delete/:id", async (req, res) => {
-    const id: string  = req.params.id;
+    const id: number = Number(req.params.id);
     try{
         const deletedCustomer = await CustomerDelete(id);
         res.json(deletedCustomer);

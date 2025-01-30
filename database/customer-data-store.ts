@@ -20,10 +20,10 @@ export async function CustomerAdd(c: Customer){
     }
 }
 
-export async function CustomerDelete(id:string) {
+export async function CustomerDelete(id:number) {
     try{
         const deletedCustomer = await prisma.customer.delete({
-            where: {id: id}
+            where: {id: id},
         });
         console.log('Customer deleted :',id);
         return deletedCustomer;

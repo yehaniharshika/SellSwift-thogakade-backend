@@ -13,8 +13,8 @@ app.use('/',(req,res,next)=>{
 })
 app.use('/customer',customerRoutes);
 
-app.listen(3001, (err=>{
-    console.log("Server running on port 3001");
+app.listen(3002, (err=>{
+    console.log("Server running on port 3002");
 }));
 
 app.use('/',(req,res,next)=>{
