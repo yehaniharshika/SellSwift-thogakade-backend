@@ -8,6 +8,7 @@ export async function CustomerAdd(c: Customer){
        const newCustomer  = await prisma.customer.create({
             data:{
                 name: c.name,
+                nic: c.nic,
                 email: c.email,
                 phone: c.phone,
             }
@@ -19,12 +20,12 @@ export async function CustomerAdd(c: Customer){
     }
 }
 
-export async function CustomerDelete(email:string) {
+export async function CustomerDelete(id:string) {
     try{
         const deletedCustomer = await prisma.customer.delete({
-            where: {email: email}
+            where: {id: id}
         });
-        console.log('Customer deleted :',email);
+        console.log('Customer deleted :',id);
         return deletedCustomer;
     }catch(err){
         console.log("error deleting customer", err);
@@ -45,6 +46,7 @@ export async function CustomerUpdate(id: number, c: Customer){
             where:{ id : c.id},
             data:{
                 name: c.name,
+                nic: c.nic,
                 email: c.email,
                 phone: c.phone
             }
