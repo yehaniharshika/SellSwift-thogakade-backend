@@ -9,7 +9,7 @@ export async function ItemAdd(i: Item){
         const newItem = await prisma.item.create({
             data:{
                 itemName: i.itemName,
-                quantity: i.quantity,
+                quantity: Number(i.quantity),
                 price: i.price,
             }
         })
@@ -34,7 +34,7 @@ export async function ItemUpdate(code:number, i: Item){
             where:{code : i.code},
             data:{
                 itemName: i.itemName,
-                quantity: i.quantity,
+                quantity: Number(i.quantity),
                 price: i.price
             }
         })

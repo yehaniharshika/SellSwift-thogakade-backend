@@ -1,6 +1,6 @@
 export default class Item{
     code!:number;
     itemName!:string;
-    quantity!:number;
+    quantity!:string;
     price!:string;
 }
