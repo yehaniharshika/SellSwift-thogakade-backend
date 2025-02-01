@@ -34,16 +34,17 @@ model Order {
   orderId      Int            @id @default(autoincrement())
   Customer     Customer       @relation(fields: [id], references: [id], onDelete: Cascade)
   id           Int
-  OrderDate    DateTime       @default(now())
+  OrderDate    String
   OrderDetails OrderDetails[]
 }
 
 model OrderDetails {
-  OrderDetailsID Int    @id @default(autoincrement())
+  orderDetailsID Int    @id @default(autoincrement())
   Order          Order  @relation(fields: [orderId], references: [orderId], onDelete: Cascade)
   orderId        Int
   Item           Item   @relation(fields: [code], references: [code], onDelete: Cascade)
   code           Int
   getQty         Int
   Price          String
+  totalPrice     String
 }
