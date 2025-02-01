@@ -1,6 +1,7 @@
 export default class OrderDetails{
-    OrderDetailsID!:number;
+    orderDetailsID!:number;
     code!:number;
     getQty!:number;
     price!:string;
+    totalPrice!: string;
 }

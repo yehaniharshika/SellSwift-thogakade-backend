@@ -15,6 +15,7 @@ export async function OrderCreate(orderData: Order) {
                         code: item.code,
                         getQty: item.getQty,
                         Price: item.price,
+                        totalPrice: item.totalPrice.toString()
                     }))
                 }
             },

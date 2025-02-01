@@ -2,7 +2,7 @@ import OrderDetails from "./OrderDetails";
 
 export default class Order{
     orderId!:number;
-    orderDate!:Date;
+    orderDate!:string;
     id!:number;
     items!:OrderDetails[];
 }
